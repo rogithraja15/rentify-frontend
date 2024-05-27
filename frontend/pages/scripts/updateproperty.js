@@ -1,13 +1,12 @@
-const authToken = localStorage.getItem("authToken");
 document.addEventListener("DOMContentLoaded", () => {
   fetchPropertyDetails();
 });
 
 function fetchPropertyDetails() {
-  const authToken = localStorage.getItem("authToken"); // Retrieve token from local storage
+  const authToken = localStorage.getItem("authToken");
   fetch(`https://rentify-afji.onrender.com/Rentify/properties/user`, {
     headers: {
-      "x-auth-token": authToken, // Include token in the headers
+      "x-auth-token": authToken,
     },
   })
     .then((response) => response.json())
@@ -23,7 +22,7 @@ function fetchPropertyDetails() {
 
 function displayPropertyDetails(properties) {
   const propertyDetails = document.getElementById("property-details");
-  propertyDetails.innerHTML = ""; // Clear any existing content
+  propertyDetails.innerHTML = "";
   properties.forEach((property) => {
     const propertyCard = document.createElement("div");
     propertyCard.className = "property-card";
@@ -168,12 +167,12 @@ function updatePropertyDetails(propertyId) {
       .map((item) => item.trim()),
   };
 
-  const authToken = localStorage.getItem("authToken"); // Retrieve token from local storage
+  const authToken = localStorage.getItem("authToken"); 
   fetch(`https://rentify-afji.onrender.com/Rentify/Property/${propertyId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      "x-auth-token": authToken, // Include token in the headers
+      "x-auth-token": authToken,
     },
     body: JSON.stringify(updatedProperty),
   })
@@ -182,7 +181,7 @@ function updatePropertyDetails(propertyId) {
       if (data.success) {
         alert("Property details updated successfully!");
         document.getElementById("update-modal").style.display = "none";
-        fetchPropertyDetails(); // Refresh the property details
+        fetchPropertyDetails(); 
       } else {
         alert("Failed to update property details: " + data.message);
       }
@@ -198,18 +197,18 @@ function deleteProperty(propertyId) {
     "Are you sure you want to delete this property?"
   );
   if (confirmation) {
-    const authToken = localStorage.getItem("authToken"); // Retrieve token from local storage
+    const authToken = localStorage.getItem("authToken"); 
     fetch(`https://rentify-afji.onrender.com/Rentify/${propertyId}`, {
       method: "DELETE",
       headers: {
-        "x-auth-token": authToken, // Include token in the headers
+        "x-auth-token": authToken,
       },
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
           alert("Property deleted successfully!");
-          fetchPropertyDetails(); // Refresh the property details
+          fetchPropertyDetails(); 
         } else {
           alert("Failed to delete property: " + data.message);
         }

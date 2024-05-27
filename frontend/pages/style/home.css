@@ -31,11 +31,21 @@
     text-align: center; 
     color: #fff;
     z-index: 2;
+    bottom: 20%;
 }
 
 .carousel-caption h5 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+}
+
+.carousel-caption .btn{
+    font-size: 1rem;
+    padding: 0.5 1rem;
 }
 
 .carousel-inner {
@@ -88,7 +98,37 @@
         text-align: center;
     }
 
+    .btn{
+        margin-bottom :5px;
+    }
+
     .carousel-caption h5 {
         font-size: 1rem;
     }
+
+    .carousel-caption p {
+        font-size: 0.6rem;
+    }
+
+    .carousel-caption .btn {
+        margin-top: 0;
+        font-size: 0.5rem;
+        padding: 0.2rem;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        top:40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; 
+        color: #fff;
+        z-index: 2;
+        bottom: 20%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Tablet styles */
+
 }
