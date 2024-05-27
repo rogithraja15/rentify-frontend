@@ -41,7 +41,7 @@ function displayProperties(properties) {
 
     const propertyRent = document.createElement("p");
     propertyRent.className = "price";
-    propertyRent.textContent = `Rent: ₹${property.rent}`;
+    propertyRent.textContent = `₹${property.rent}`;
 
     const likeButton = document.createElement("button");
     likeButton.className = "like-button";
@@ -94,12 +94,18 @@ function showPropertyDetails(property) {
 
   const interestButton = modalContent.querySelector(".interest-button");
   interestButton.addEventListener("click", () => {
-    expressInterest(property._id);
+    var userRole = localStorage.getItem("userRole");
+
+    if (userRole !== "Buyer") {
+      alert("Sorry, this option is only available for buyers.");
+    } else {
+      expressInterest(property._id);
+      alert("You've shown interest in this property");
+    }
   });
 
   modal.style.display = "block";
 }
-
 function expressInterest(propertyId) {
   fetch(
     `https://rentify-afji.onrender.com/Rentify/Property/interested/${propertyId}`,
