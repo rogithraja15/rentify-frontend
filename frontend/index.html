@@ -314,7 +314,14 @@
                 });
             }
         });
-
+        document.addEventListener("DOMContentLoaded", () => {
+            const filterButton = document.getElementById("filterBtn");
+            if (addPropertyButton) {
+                addPropertyButton.addEventListener("click", () => {
+                    window.location.href = "pages/filter.html";
+                });
+            }
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
